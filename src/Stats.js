@@ -300,23 +300,22 @@ class Beta extends ContinuousRandVar {
   }
 }
 
-/*exports.BasicStats = BasicStats;
-exports.DiscreteRandVar = DiscreteRandVar;
-exports.Binomial = Binomial;
-exports.Geometric = Geometric;
-exports.Hypergeometric = Hypergeometric;
-exports.Poisson = Poisson;
-exports.NegativeBinomial = NegativeBinomial;
-exports.ContinuousRandVar = ContinuousRandVar;
-exports.Uniform = Uniform;
-exports.Normal = Normal;
-exports.Exponential = Exponential;
-exports.Gamma = Gamma;
-exports.ChiSquare = ChiSquare;
-exports.Beta = Beta;*/
+/*require("babel-core").transform("code", {
+  plugins: ["transform-class-properties"]
+});
 
-// https://booker.codes/how-to-build-and-publish-es6-npm-modules-today-with-babel/
-module.exports = function({percent = 100, amount}) {  
-  const percentOff = (percent / 100) * amount;
-  return percentOff;
-}
+export default class {BasicStats}
+export default class {DiscreteRandVar}
+export default class {Binomial}
+export default class {Geometric}
+export default class {Hypergeometric}
+export default class {Poisson}
+export default class {NegativeBinomial}
+export default class {ContinuousRandVar}
+export default class {Uniform}
+export default class {Normal}
+export default class {Exponential}
+export default class {Gamma}
+export default class {ChiSquare}
+export default class {Beta}
+*/
