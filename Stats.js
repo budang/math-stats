@@ -328,3 +328,18 @@ class Beta extends ContinuousRandVar {
     return (this.a * this.b) / (Math.pow(this.a + this.b, 2) * (this.a + this.b + 1));
   }
 }
+
+/*exports.BasicStats = BasicStats;
+exports.DiscreteRandVar = DiscreteRandVar;
+exports.Binomial = Binomial;
+exports.Geometric = Geometric;
+exports.Hypergeometric = Hypergeometric;
+exports.Poisson = Poisson;
+exports.NegativeBinomial = NegativeBinomial;
+exports.ContinuousRandVar = ContinuousRandVar;
+exports.Uniform = Uniform;
+exports.Normal = Normal;
+exports.Exponential = Exponential;
+exports.Gamma = Gamma;
+exports.ChiSquare = ChiSquare;
+exports.Beta = Beta;*/

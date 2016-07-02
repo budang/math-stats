@@ -1,0 +1,33 @@
+{
+  "name": "math-stats",
+  "version": "1.0.0",
+  "description": "Basic mathematical statistic functions",
+  "main": "Stats.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/budang/math-stats.git"
+  },
+  "keywords": [
+    "stats",
+    "statistics",
+    "probability",
+    "mean",
+    "variance",
+    "distribution",
+    "factorial",
+    "choose",
+    "gamma"
+  ],
+  "author": "budang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/budang/math-stats/issues"
+  },
+  "homepage": "https://github.com/budang/math-stats#readme",
+  "devDependencies": {
+    "babel-cli": "^6.10.1"
+  }
+}
