@@ -2,29 +2,27 @@ class BasicStats {
   constructor() {
     this.factorials = [1, 1];
   }
-  
+
   factorial(x) {
-    if(this.factorials[x])
-      return this.factorials[x];
-      
-    if(x < 0)
-      throw new error();
-      
+    if (this.factorials[x]) return this.factorials[x];
+
+    if (x < 0) throw new error();
+
     let factorial = x;
-    for(let i = x - 1; i > 1; i--) {
-      if(this.factorials[i]) {
+    for (let i = x - 1; i > 1; i--) {
+      if (this.factorials[i]) {
         factorial *= factorials[i];
         break;
       }
       factorial *= i;
     }
-    
+
     this.factorials[x] = factorial;
     return factorial;
   }
-  
+
   choose(n, k) {
-    return this.factorial(n) / ( factorial(k) * factorial(n - k) );
+    return this.factorial(n) / (factorial(k) * factorial(n - k));
   }
 
   gamma(n) {
@@ -34,27 +32,20 @@ class BasicStats {
 
 class DiscreteRandVar {
   constructor(p) {
-    if (new.target === DiscreteRandVar)
-      throw new Error("Cannot construct abstract instances directly.");
+    if (new.target === DiscreteRandVar) throw new Error("Cannot construct abstract instances directly.");
 
     this.p = p;
     this.q = p - 1;
 
-    this.stats = new BasicStats;
+    this.stats = new BasicStats();
     this.invalidValueError = new Error("Invalid value for y input.");
   }
 
-  probability(y) {
-    
-  }
+  probability(y) {}
 
-  mean() {
-    
-  }
+  mean() {}
 
-  variance() {
-    
-  }
+  variance() {}
 }
 
 class Binomial extends DiscreteRandVar {
@@ -64,8 +55,7 @@ class Binomial extends DiscreteRandVar {
   }
 
   probability(y) {
-    if(y < 0 || y > this.n)
-      throw this.invalidValueError;
+    if (y < 0 || y > this.n) throw this.invalidValueError;
 
     return this.stats.choose(this.n, y) * Math.pow(this.p, y) * Math.pow(this.q, this.n - y);
   }
@@ -85,8 +75,7 @@ class Geometric extends DiscreteRandVar {
   }
 
   probability(y) {
-    if(y < 1)
-      throw this.invalidValueError;
+    if (y < 1) throw this.invalidValueError;
 
     return this.p * Math.pow(this.q, y - 1);
   }
@@ -109,11 +98,9 @@ class Hypergeometric extends DiscreteRandVar {
   }
 
   probability(y) {
-    if((this.n <= this.r && (y < 0 || y > this.n))
-      || (this.n > this.r && (y < 0 || y > this.r)))
-      throw this.invalidValueError;
+    if (this.n <= this.r && (y < 0 || y > this.n) || this.n > this.r && (y < 0 || y > this.r)) throw this.invalidValueError;
 
-    return (this.stats.choose(this.r, y) * this.stats.choose(this.N - this.r, this.n - y)) / this.stats.choose(this.N, this.n);
+    return this.stats.choose(this.r, y) * this.stats.choose(this.N - this.r, this.n - y) / this.stats.choose(this.N, this.n);
   }
 
   mean() {
@@ -121,7 +108,7 @@ class Hypergeometric extends DiscreteRandVar {
   }
 
   variance() {
-    return this.n * (this.r / this.N) * ((this.N - this.r) / this.N) - ((this.N - this.n) / (this.N - 1));
+    return this.n * (this.r / this.N) * ((this.N - this.r) / this.N) - (this.N - this.n) / (this.N - 1);
   }
 }
 
@@ -132,8 +119,7 @@ class Poisson extends DiscreteRandVar {
   }
 
   probability(y) {
-    if(y < 0)
-      throw this.invalidValueError;
+    if (y < 0) throw this.invalidValueError;
 
     return Math.pow(this.l, y) * Math.exp(-this.l) / this.stats.factorial(y);
   }
@@ -154,8 +140,7 @@ class NegativeBinomial extends DiscreteRandVar {
   }
 
   probability(y) {
-    if(y < this.r)
-      throw this.invalidValueError;
+    if (y < this.r) throw this.invalidValueError;
 
     return this.stats.choose(y - 1, this.r - 1) * Math.pow(this.p, this.r) * Math.pow(this.q, y - this.r);
   }
@@ -171,24 +156,17 @@ class NegativeBinomial extends DiscreteRandVar {
 
 class ContinuousRandVar {
   constructor() {
-    if (new.target === DiscreteRandVar)
-      throw new Error("Cannot construct abstract instances directly.");
+    if (new.target === DiscreteRandVar) throw new Error("Cannot construct abstract instances directly.");
 
-    this.stats = new BasicStats;
+    this.stats = new BasicStats();
     this.invalidValueError = new Error("Invalid value for y input.");
   }
 
-  probability(y) {
+  probability(y) {}
 
-  }
+  mean() {}
 
-  mean() {
-
-  }
-
-  variance() {
-
-  }
+  variance() {}
 }
 
 class Uniform extends ContinuousRandVar {
@@ -199,8 +177,7 @@ class Uniform extends ContinuousRandVar {
   }
 
   probability(y) {
-    if(y < this.t1 || y > this.t2)
-      throw this.invalidValueError;
+    if (y < this.t1 || y > this.t2) throw this.invalidValueError;
 
     return 1 / (this.t2 - this.t1);
   }
@@ -222,10 +199,9 @@ class Normal extends ContinuousRandVar {
   }
 
   probability(y) {
-    if(y <= -Infinity || y >= Infinity)
-      throw this.invalidValueError;
+    if (y <= -Infinity || y >= Infinity) throw this.invalidValueError;
 
-    return (1 / (s * Math.sqrt(2 * Math.pi))) * Math.E(-(1 / (2 * Math.pow(this.s, 2))) * Math.pow(y - this.u, 2));
+    return 1 / (s * Math.sqrt(2 * Math.pi)) * Math.E(-(1 / (2 * Math.pow(this.s, 2))) * Math.pow(y - this.u, 2));
   }
 
   mean() {
@@ -240,16 +216,14 @@ class Normal extends ContinuousRandVar {
 class Exponential extends ContinuousRandVar {
   constructor(b) {
     super();
-    if(b <= 0)
-      throw this.invalidValueError;
+    if (b <= 0) throw this.invalidValueError;
     this.b = b;
   }
 
   probability(y) {
-    if(y <= 0 || y >= Infinity)
-      throw this.invalidValueError;
+    if (y <= 0 || y >= Infinity) throw this.invalidValueError;
 
-    return (1 / this.b) * Math.E(-y / this.b);
+    return 1 / this.b * Math.E(-y / this.b);
   }
 
   mean() {
@@ -269,12 +243,11 @@ class Gamma extends ContinuousRandVar {
   }
 
   probability(y) {
-    if(y <= 0 || y >= Infinity)
-      throw this.invalidValueError;
+    if (y <= 0 || y >= Infinity) throw this.invalidValueError;
 
-    return (1 / (this.stats.gamma(this.a) * Math.pow(this.b, this.a))) * Math.pow(y, this.a - 1) * Math.E(-y / this.b);
+    return 1 / (this.stats.gamma(this.a) * Math.pow(this.b, this.a)) * Math.pow(y, this.a - 1) * Math.E(-y / this.b);
   }
-  
+
   mean() {
     return this.a * this.b;
   }
@@ -291,10 +264,9 @@ class ChiSquare extends ContinuousRandVar {
   }
 
   probability(y) {
-    if(Math.pow(y, 2) <= 0)
-      throw this.invalidValueError;
+    if (Math.pow(y, 2) <= 0) throw this.invalidValueError;
 
-    return (Math.pow(y, this.v / 2) * Math.E(-y / 2)) / (Math.pow(2, this.v / 2) * this.stats.gamma(this.v / 2));
+    return Math.pow(y, this.v / 2) * Math.E(-y / 2) / (Math.pow(2, this.v / 2) * this.stats.gamma(this.v / 2));
   }
 
   mean() {
@@ -314,10 +286,9 @@ class Beta extends ContinuousRandVar {
   }
 
   probability(y) {
-    if(y <= 0 || y >= 1)
-      throw this.invalidValueError;
+    if (y <= 0 || y >= 1) throw this.invalidValueError;
 
-    return (this.stats.gamma(this.a + this.b) / (this.stats.gamma(this.a) * this.stats.gamma(this.b))) * Math.pow(y, this.a - 1) * Math.pow(1 - y, this.b - 1);
+    return this.stats.gamma(this.a + this.b) / (this.stats.gamma(this.a) * this.stats.gamma(this.b)) * Math.pow(y, this.a - 1) * Math.pow(1 - y, this.b - 1);
   }
 
   mean() {
@@ -325,11 +296,11 @@ class Beta extends ContinuousRandVar {
   }
 
   variance() {
-    return (this.a * this.b) / (Math.pow(this.a + this.b, 2) * (this.a + this.b + 1));
+    return this.a * this.b / (Math.pow(this.a + this.b, 2) * (this.a + this.b + 1));
   }
 }
 
-/*exports.BasicStats = BasicStats;
+exports.BasicStats = BasicStats;
 exports.DiscreteRandVar = DiscreteRandVar;
 exports.Binomial = Binomial;
 exports.Geometric = Geometric;
@@ -342,4 +313,4 @@ exports.Normal = Normal;
 exports.Exponential = Exponential;
 exports.Gamma = Gamma;
 exports.ChiSquare = ChiSquare;
-exports.Beta = Beta;*/
+exports.Beta = Beta;
