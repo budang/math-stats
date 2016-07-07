@@ -1,4 +1,4 @@
-import { ContinuousRandVar } from './';
+import { ContinuousRandVar } from '../';
 
 class Normal extends ContinuousRandVar {
   constructor(u, s) {

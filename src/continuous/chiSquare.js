@@ -1,4 +1,4 @@
-import { ContinuousRandVar } from './';
+import { ContinuousRandVar } from '../';
 
 class ChiSquare extends ContinuousRandVar {
   constructor(v) {

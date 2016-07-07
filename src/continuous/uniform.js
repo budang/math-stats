@@ -1,4 +1,4 @@
-import { ContinuousRandVar } from './';
+import { ContinuousRandVar } from '../';
 
 class Uniform extends ContinuousRandVar {
   constructor(t1, t2) {
