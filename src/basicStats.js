@@ -6,12 +6,12 @@ class BasicStats {
   factorial(x) {
     if (this.factorials[x]) return this.factorials[x];
 
-    if (x < 0) throw new error();
+    if (x < 0) throw new Error();
 
     let factorial = x;
     for (let i = x - 1; i > 1; i--) {
       if (this.factorials[i]) {
-        factorial *= factorials[i];
+        factorial *= this.factorials[i];
         break;
       }
       factorial *= i;
@@ -22,7 +22,7 @@ class BasicStats {
   }
 
   choose(n, k) {
-    return this.factorial(n) / (factorial(k) * factorial(n - k));
+    return this.factorial(n) / (this.factorial(k) * this.factorial(n - k));
   }
 
   gamma(n) {
