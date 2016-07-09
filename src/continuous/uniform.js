@@ -22,4 +22,4 @@ class Uniform extends ContinuousRandVar {
   }
 }
 
-export { Uniform }
+export { Uniform };
