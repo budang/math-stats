@@ -2,7 +2,7 @@
   "name": "math-stats",
   "version": "1.0.0",
   "description": "Basic mathematical statistic functions",
-  "main": "Stats.js",
+  "main": "math-stats.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src --presets babel-preset-es2015 --out-dir distr",
