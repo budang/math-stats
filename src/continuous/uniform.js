@@ -1,24 +1,24 @@
-import { ContinuousRandVar } from '../';
+class Uniform {
+  constructor(theta1, theta2) {
+    this.theta1 = theta1;
+    this.theta2 = theta2;
 
-class Uniform extends ContinuousRandVar {
-  constructor(t1, t2) {
-    super();
-    this.t1 = t1;
-    this.t2 = t2;
+    this.mean = this._mean();
+    this.variance = this._variance();
   }
 
   probability(y) {
-    if (y < this.t1 || y > this.t2) throw this.invalidValueError;
+    if (y < this.theta1 || y > this.theta2) throw new Error("Invalid value for y");
 
-    return 1 / (this.t2 - this.t1);
+    return 1 / (this.theta2 - this.theta1);
   }
 
-  mean() {
-    return (this.t1 + this.t2) / 2;
+  _mean() {
+    return (this.theta1 + this.theta2) / 2;
   }
 
-  variance() {
-    return Math.pow(this.t2 - this.t1, 2) / 12;
+  _variance() {
+    return Math.pow(this.theta2 - this.theta1, 2) / 12;
   }
 }
 

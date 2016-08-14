@@ -1,24 +1,25 @@
-import { ContinuousRandVar } from '../';
+class Exponential {
+  constructor(beta) {
+    if (beta <= 0) throw new Error("Invalid value for beta");
 
-class Exponential extends ContinuousRandVar {
-  constructor(b) {
-    super();
-    if (b <= 0) throw this.invalidValueError;
-    this.b = b;
+    this.beta = beta;
+
+    this.mean = this._mean();
+    this.variance = this._variance();
   }
 
   probability(y) {
-    if (y <= 0 || y >= Infinity) throw this.invalidValueError;
+    if (y <= 0 || y >= Infinity) throw new Error("Invalid value for y");
 
-    return 1 / this.b * Math.E(-y / this.b);
+    return 1 / this.beta * Math.E(-y / this.beta);
   }
 
-  mean() {
-    return this.b;
+  _mean() {
+    return this.beta;
   }
 
-  variance() {
-    return Math.pow(this.b, 2);
+  _variance() {
+    return Math.pow(this.beta, 2);
   }
 }
 

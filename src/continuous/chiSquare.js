@@ -1,22 +1,24 @@
-import { ContinuousRandVar } from '../';
+import _gamma from '../internal/_gamma';
 
-class ChiSquare extends ContinuousRandVar {
+class ChiSquare {
   constructor(v) {
-    super();
     this.v = v;
+
+    this.mean = this._mean();
+    this.variance = this._variance();
   }
 
   probability(y) {
-    if (Math.pow(y, 2) <= 0) throw this.invalidValueError;
+    if (Math.pow(y, 2) <= 0) throw new Error("Invalid value for y");
 
-    return Math.pow(y, this.v / 2) * Math.E(-y / 2) / (Math.pow(2, this.v / 2) * this.stats.gamma(this.v / 2));
+    return Math.pow(y, this.v / 2) * Math.E(-y / 2) / (Math.pow(2, this.v / 2) * _gamma(this.v / 2));
   }
 
-  mean() {
+  _mean() {
     return this.v;
   }
 
-  variance() {
+  _variance() {
     return 2 * this.v;
   }
 }

@@ -1,24 +1,26 @@
-import { ContinuousRandVar } from '../';
+import _gamma from '../internal/_gamma';
 
-class Gamma extends ContinuousRandVar {
-  constructor(a, b) {
-    super();
-    this.a = a;
-    this.b = b;
+class Gamma {
+  constructor(alpha, beta) {
+    this.alpha = alpha;
+    this.beta = beta;
+
+    this.mean = this._mean();
+    this.variance = this._variance();
   }
 
   probability(y) {
-    if (y <= 0 || y >= Infinity) throw this.invalidValueError;
+    if (y <= 0 || y >= Infinity) throw new Error("Invalid value for y");
 
-    return 1 / (this.stats.gamma(this.a) * Math.pow(this.b, this.a)) * Math.pow(y, this.a - 1) * Math.E(-y / this.b);
+    return 1 / (_gamma(this.alpha) * Math.pow(this.beta, this.alpha)) * Math.pow(y, this.alpha - 1) * Math.E(-y / this.beta);
   }
 
-  mean() {
-    return this.a * this.b;
+  _mean() {
+    return this.alpha * this.beta;
   }
 
-  variance() {
-    return this.a * Math.pow(this.b, 2);
+  _variance() {
+    return this.alpha * Math.pow(this.beta, 2);
   }
 }
 

@@ -1,24 +1,24 @@
-import { ContinuousRandVar } from '../';
+class Normal {
+  constructor(mu, sigma) {
+    this.mu = mu;
+    this.sigma = sigma;
 
-class Normal extends ContinuousRandVar {
-  constructor(u, s) {
-    super();
-    this.u = u;
-    this.s = s;
+    this.mean = this._mean();
+    this.variance = this._variance();
   }
 
   probability(y) {
-    if (y <= -Infinity || y >= Infinity) throw this.invalidValueError;
+    if (y <= -Infinity || y >= Infinity) throw new Error("Invalid value for y");
 
-    return 1 / (this.s * Math.sqrt(2 * Math.pi)) * Math.E(-(1 / (2 * Math.pow(this.s, 2))) * Math.pow(y - this.u, 2));
+    return 1 / (this.sigma * Math.sqrt(2 * Math.pi)) * Math.E(-(1 / (2 * Math.pow(this.sigma, 2))) * Math.pow(y - this.mu, 2));
   }
 
-  mean() {
-    return this.u;
+  _mean() {
+    return this.mu;
   }
 
-  variance() {
-    return Math.pow(this.s, 2);
+  _variance() {
+    return Math.pow(this.sigma, 2);
   }
 }
 
