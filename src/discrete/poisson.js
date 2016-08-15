@@ -1,23 +1,25 @@
-import { DiscreteRandVar } from '../';
+import _factorial from '../internal/_factorial';
 
-class Poisson extends DiscreteRandVar {
-  constructor(l) {
-    super(null);
-    this.l = l;
+class Poisson {
+  constructor(lambda) {
+    this.lambda = lambda;
+
+    this.mean = this._mean();
+    this.variance = this._variance();
   }
 
   probability(y) {
-    if (y < 0) throw this.invalidValueError;
+    if (y < 0) throw new Error("Invalid value for y");
 
-    return Math.pow(this.l, y) * Math.exp(-this.l) / this.stats.factorial(y);
+    return Math.pow(this.lambda, y) * Math.exp(-this.lambda) / _factorial(y);
   }
 
-  mean() {
-    return this.l;
+  _mean() {
+    return this.lambda;
   }
 
-  variance() {
-    return this.l;
+  _variance() {
+    return this.lambda;
   }
 }
 

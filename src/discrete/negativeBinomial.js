@@ -1,22 +1,26 @@
-import { DiscreteRandVar } from '../';
+import _choose from '../internal/_choose';
 
-class NegativeBinomial extends DiscreteRandVar {
+class NegativeBinomial {
   constructor(p, r) {
-    super(p);
+    this.p = p;
+    this.q = p - 1;
     this.r = r;
+
+    this.mean = this._mean();
+    this.variance = this._variance();
   }
 
   probability(y) {
-    if (y < this.r) throw this.invalidValueError;
+    if (y < this.r) throw new Error("Invalid value for y");
 
-    return this.stats.choose(y - 1, this.r - 1) * Math.pow(this.p, this.r) * Math.pow(this.q, y - this.r);
+    return _choose(y - 1, this.r - 1) * Math.pow(this.p, this.r) * Math.pow(this.q, y - this.r);
   }
 
-  mean() {
+  _mean() {
     return this.r / this.p;
   }
 
-  variance() {
+  _variance() {
     return this.r * this.q / Math.pow(this.p, 2);
   }
 }
