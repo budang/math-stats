@@ -1,5 +1,2 @@
 node_modules/
 *.log
-distr
-.eslintrc.js
-test/

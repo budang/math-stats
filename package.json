@@ -2,12 +2,11 @@
   "name": "math-stats",
   "version": "1.0.0",
   "description": "Basic mathematical statistic functions",
-  "main": "./src/math-stats.js",
+  "main": "./dist/math-stats.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src --presets babel-preset-es2015 --out-dir distr",
-    "prepublish": "rm ./distr/ -r && npm run build",
-    "lint": "./node_modules/.bin/eslint ./src/*"
+    "build": "babel ./lib/ --presets babel-preset-es2015 --out-dir ./dist/",
+    "lint": "./node_modules/.bin/eslint ./lib/*"
   },
   "repository": {
     "type": "git",
