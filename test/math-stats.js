@@ -16,7 +16,7 @@ describe('Binomial', () => {
   });
 
   describe('#_variance()', () => {
-    it(`calculates the varaince for p = ${p}, n = ${n}`, () => {
+    it(`calculates the variance for p = ${p}, n = ${n}`, () => {
     	const variance = binomial._variance();
     	variance.should.equal(2.1);
     })
@@ -25,7 +25,7 @@ describe('Binomial', () => {
   describe('#probability(y)', () => {
     it(`calculates the probability distribution for y = ${y}`, () => {
     	const probability = binomial.probability(y).toFixed((6));
-    	probability.should.equal(0.000138);
+    	probability.should.equal('0.000138');
     })
   });
 });
