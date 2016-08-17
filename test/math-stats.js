@@ -24,8 +24,8 @@ describe('Binomial', () => {
 
   describe('#probability(y)', () => {
     it(`calculates the probability distribution for y = ${y}`, () => {
-    	const probability = binomial.probability(y).toFixed((6));
-    	probability.should.equal('0.000138');
+    	const probability = binomial.probability(y);
+    	(probability.toFixed((6))).should.equal('0.000138');
     })
   });
 });
