@@ -79,7 +79,7 @@ module.exports = {
             "error",
             "unix"
         ],
-        "lines-around-comment": "error",
+        "lines-around-comment": "off",
         "max-depth": "error",
         "max-len": "off",
         "max-lines": "off",
@@ -238,7 +238,7 @@ module.exports = {
         "space-unary-ops": "error",
         "spaced-comment": [
             "error",
-            "never"
+            "always"
         ],
         "strict": "off",
         "template-curly-spacing": "error",
