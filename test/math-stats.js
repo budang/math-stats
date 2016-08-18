@@ -8,9 +8,9 @@ const should = require('chai').should(),
   stats = require('../dist/math-stats');
 
 /**
- *
+ * _choose function
  */
-describe('_choose', () => {
+describe('_choose()', () => {
   let n = 52,
     k = 5;
 
@@ -21,9 +21,9 @@ describe('_choose', () => {
 });
 
 /**
- *
+ * _factorial function
  */
-describe('_factorial', () => {
+describe('_factorial()', () => {
   let n = 10;
 
   it(`calculates factorial of n = ${n}`, () => {
@@ -33,9 +33,9 @@ describe('_factorial', () => {
 });
 
 /**
- *
+ * _gamma function
  */
-describe('_gamma', () => {
+describe('_gamma()', () => {
   let n = 5;
 
   it(`calculates gamma of n = ${n}`, () => {
@@ -45,9 +45,9 @@ describe('_gamma', () => {
 });
 
 /**
- *
+ * _multiply function
  */
-describe('_multiply', () => {
+describe('_multiply()', () => {
   let a = 0.1,
     b = 0.2,
     c = 0.3;
@@ -59,7 +59,7 @@ describe('_multiply', () => {
 });
 
 /**
- *
+ * Binomial random variable
  */
 describe('Binomial', () => {
   let p = 0.3,
@@ -86,6 +86,37 @@ describe('Binomial', () => {
     it(`calculates the probability distribution for y = ${y}`, () => {
     	const probability = binomial.probability(y);
     	(probability.toFixed((6))).should.equal('0.000138');
+    });
+  });
+});
+
+/**
+ * Geometric random variable
+ */
+describe('Geometric', () => {
+  let p = 0.02,
+    y = 2;
+
+  let geometric = stats.geometric(p);
+
+  describe('#_mean()', () => {
+    it(`calculates the mean for p = ${p}`, () => {
+      const mean = geometric._mean();
+      mean.should.equal(50);
+    });
+  });
+
+  describe('#_variance()', () => {
+    it(`calculates the variance for p = ${p}`, () => {
+      const variance = geometric._variance();
+      variance.should.equal(2450);
+    });
+  });
+
+  describe('#probability(y)', () => {
+    it(`calculates the probability distribution for y = ${y}`, () => {
+      const probability = geometric.probability(y);
+      probability.should.equal(0.0196);
     });
   });
 });

@@ -20,7 +20,7 @@ var Geometric = function () {
     _classCallCheck(this, Geometric);
 
     this.p = p;
-    this.q = p - 1;
+    this.q = 1 - p;
 
     this.mean = this._mean();
     this.variance = this._variance();
