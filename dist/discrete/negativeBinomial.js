@@ -19,7 +19,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+/** Class representing a Negative Binomial distribution. **/
+
 var NegativeBinomial = function () {
+  /**
+   * @param {Number} p - The probability of success.
+   * @param {Number} r - The rth trial resulting in success.
+   */
+
   function NegativeBinomial(p, r) {
     _classCallCheck(this, NegativeBinomial);
 
@@ -31,6 +38,12 @@ var NegativeBinomial = function () {
     this.variance = this._variance();
   }
 
+  /**
+   * @param {Number} y - The Number of successes.
+   * @returns {Number} The probability distribution.
+   */
+
+
   _createClass(NegativeBinomial, [{
     key: 'probability',
     value: function probability(y) {
@@ -38,11 +51,21 @@ var NegativeBinomial = function () {
 
       return (0, _multiply3.default)((0, _choose3.default)(y - 1, this.r - 1), Math.pow(this.p, this.r), Math.pow(this.q, y - this.r));
     }
+
+    /**
+     * @returns {Number} The mean.
+     */
+
   }, {
     key: '_mean',
     value: function _mean() {
       return this.r / this.p;
     }
+
+    /**
+     * @returns {Number} The variance.
+     */
+
   }, {
     key: '_variance',
     value: function _variance() {
