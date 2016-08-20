@@ -5,13 +5,14 @@ const should = require('chai').should(),
   _factorial = require('../dist/internal/_factorial').default,
   _gamma = require('../dist/internal/_gamma').default,
   _multiply = require('../dist/internal/_multiply').default,
+  _pow = require('../dist/internal/_pow').default,
   stats = require('../dist/math-stats');
 
 /**
  * _choose function
  */
 describe('_choose()', () => {
-  let n = 52,
+  const n = 52,
     k = 5;
 
   it(`calculates nCk for n = ${n}, k = ${k}`, () => {
@@ -24,7 +25,7 @@ describe('_choose()', () => {
  * _factorial function
  */
 describe('_factorial()', () => {
-  let n = 10;
+  const n = 10;
 
   it(`calculates factorial of n = ${n}`, () => {
     const result = _factorial(n);
@@ -36,7 +37,7 @@ describe('_factorial()', () => {
  * _gamma function
  */
 describe('_gamma()', () => {
-  let n = 5;
+  const n = 5;
 
   it(`calculates gamma of n = ${n}`, () => {
     const result = _gamma(n);
@@ -48,7 +49,7 @@ describe('_gamma()', () => {
  * _multiply function
  */
 describe('_multiply()', () => {
-  let a = 0.1,
+  const a = 0.1,
     b = 0.2,
     c = 0.3;
 
@@ -59,14 +60,27 @@ describe('_multiply()', () => {
 });
 
 /**
+ * _pow function
+ */
+describe('_pow()', () => {
+  const base = 0.1,
+    exponent = 2;
+
+  it(`calculates FP-safe exponention of base = ${base}, exponent = ${exponent}`, () => {
+    const result = _pow(base, exponent);
+    result.should.equal(0.01);
+  });
+});
+
+/**
  * Binomial random variable
  */
 describe('Binomial', () => {
-  let p = 0.3,
+  const p = 0.3,
     n = 10,
     y = 9;
 
-  let binomial = stats.binomial(p, n);
+  const binomial = stats.binomial(p, n);
 
   describe('#_mean()', () => {
     it(`calculates the mean for p = ${p}, n = ${n}`, () => {
@@ -94,10 +108,10 @@ describe('Binomial', () => {
  * Geometric random variable
  */
 describe('Geometric', () => {
-  let p = 0.02,
+  const p = 0.02,
     y = 2;
 
-  let geometric = stats.geometric(p);
+  const geometric = stats.geometric(p);
 
   describe('#_mean()', () => {
     it(`calculates the mean for p = ${p}`, () => {
@@ -125,11 +139,11 @@ describe('Geometric', () => {
  * Negative Binomial random variable
  */
 describe('NegativeBinomial', () => {
-  let p = 0.2,
+  const p = 0.2,
     r = 3,
     y = 5;
 
-  let negativeBinomial = stats.negativeBinomial(p, r);
+  const negativeBinomial = stats.negativeBinomial(p, r);
 
   describe('#_mean()', () => {
     it(`calculates the mean for p = ${p}, r = ${r}`, () => {

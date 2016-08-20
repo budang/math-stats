@@ -15,6 +15,10 @@ var _multiply2 = require('../internal/_multiply');
 
 var _multiply3 = _interopRequireDefault(_multiply2);
 
+var _pow2 = require('../internal/_pow');
+
+var _pow3 = _interopRequireDefault(_pow2);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -49,7 +53,7 @@ var NegativeBinomial = function () {
     value: function probability(y) {
       if (y < this.r) throw new Error("Invalid value for y");
 
-      return (0, _multiply3.default)((0, _choose3.default)(y - 1, this.r - 1), Math.pow(this.p, this.r), Math.pow(this.q, y - this.r));
+      return (0, _multiply3.default)((0, _choose3.default)(y - 1, this.r - 1), (0, _pow3.default)(this.p, this.r), (0, _pow3.default)(this.q, y - this.r));
     }
 
     /**
@@ -69,7 +73,7 @@ var NegativeBinomial = function () {
   }, {
     key: '_variance',
     value: function _variance() {
-      return (0, _multiply3.default)(this.r, this.q) / Math.pow(this.p, 2);
+      return (0, _multiply3.default)(this.r, this.q) / (0, _pow3.default)(this.p, 2);
     }
   }]);
 

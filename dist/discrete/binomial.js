@@ -15,6 +15,10 @@ var _multiply2 = require('../internal/_multiply');
 
 var _multiply3 = _interopRequireDefault(_multiply2);
 
+var _pow2 = require('../internal/_pow');
+
+var _pow3 = _interopRequireDefault(_pow2);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -49,7 +53,7 @@ var Binomial = function () {
     value: function probability(y) {
       if (y < 0 || y > this.n) throw new Error("Invalid value for y");
 
-      return (0, _multiply3.default)((0, _choose3.default)(this.n, y), Math.pow(this.p, y), Math.pow(this.q, this.n - y));
+      return (0, _multiply3.default)((0, _choose3.default)(this.n, y), (0, _pow3.default)(this.p, y), (0, _pow3.default)(this.q, this.n - y));
     }
 
     /**
