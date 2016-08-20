@@ -129,7 +129,7 @@ describe('NegativeBinomial', () => {
     r = 3,
     y = 5;
 
-  let negativeBinomial = stats.negativeBinomial(p);
+  let negativeBinomial = stats.negativeBinomial(p, r);
 
   describe('#_mean()', () => {
     it(`calculates the mean for p = ${p}, r = ${r}`, () => {
