@@ -48,7 +48,7 @@ var geometric = function geometric(p) {
 };
 
 var hypergeometric = function hypergeometric(n, N, r) {
-  return new _hypergeometric.HyperGeometric(n, N, r);
+  return new _hypergeometric.Hypergeometric(n, N, r);
 };
 
 var negativeBinomial = function negativeBinomial(p, r) {
