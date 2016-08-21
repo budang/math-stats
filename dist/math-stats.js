@@ -27,7 +27,6 @@ var beta = function beta(alpha, _beta) {
 };
 
 var binomial = function binomial(p, n) {
-  console.log(_binomial.Binomial);
   return new _binomial.Binomial(p, n);
 };
 

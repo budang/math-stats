@@ -8,8 +8,8 @@ var _multiply = function _multiply() {
     nums[_key] = arguments[_key];
   }
 
-  var multiplier = 1000,
-      product = 1;
+  var multiplier = 1000;
+  var product = 1;
 
   var numbers = nums.map(function (num) {
     return num * multiplier;
