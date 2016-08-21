@@ -156,7 +156,7 @@ describe('Hypergeometric', () => {
   describe('#_variance()', () => {
     it(`calculates the variance for n = ${n}, N = ${N}, r = ${r}`, () => {
       const variance = hypergeomtric._variance();
-      variance.should.equal(0.632);
+      (variance.toFixed(3)).should.equal('0.632');
     });
   });
 

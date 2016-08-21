@@ -35,7 +35,7 @@ var NegativeBinomial = function () {
     _classCallCheck(this, NegativeBinomial);
 
     this.p = p;
-    this.q = p - 1;
+    this.q = 1 - p;
     this.r = r;
 
     this.mean = this._mean();
