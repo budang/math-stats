@@ -20,13 +20,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /** Class representing a Binomial distribution. **/
-
 var Binomial = function () {
   /**
    * @param {Number} p - The probability of success.
    * @param {Number} n - The Number of identical trials.
    */
-
   function Binomial(p, n) {
     _classCallCheck(this, Binomial);
 
@@ -47,7 +45,7 @@ var Binomial = function () {
   _createClass(Binomial, [{
     key: 'probability',
     value: function probability(y) {
-      if (y < 0 || y > this.n) throw new Error("Invalid value for y");
+      if (y < 0 || y > parseFloat(this.n)) throw new Error("Invalid value for y");
 
       return parseFloat(new _bigJs2.default((0, _choose3.default)(this.n, y)).times(this.p.pow(y)).times(this.q.pow(parseFloat(this.n.minus(y)))));
     }
