@@ -47,7 +47,7 @@ var NegativeBinomial = function () {
     value: function probability(y) {
       if (y < parseFloat(this.r)) throw new Error("Invalid value for y");
 
-      return parseFloat(new _bigJs2.default((0, _choose3.default)(y - 1, this.r - 1)).times(parseFloat(this.p.pow(this.r))).times(parseFloat(this.q.pow(y - this.r))));
+      return parseFloat(new _bigJs2.default((0, _choose3.default)(y - 1, this.r - 1)).times(this.p.pow(parseFloat(this.r))).times(this.q.pow(parseFloat(new _bigJs2.default(y).minus(this.r)))));
     }
 
     /**
@@ -67,7 +67,7 @@ var NegativeBinomial = function () {
   }, {
     key: '_variance',
     value: function _variance() {
-      return parseFloat(this.r.times(this.q).div(parseFloat(this.p.pow(2))));
+      return parseFloat(this.r.times(this.q).div(this.p.pow(2)));
     }
   }]);
 

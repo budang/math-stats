@@ -41,7 +41,7 @@ var Geometric = function () {
     value: function probability(y) {
       if (y < 1) throw new Error("Invalid value for y");
 
-      return parseFloat(this.p.times(parseFloat(this.q.pow(y - 1))));
+      return parseFloat(this.p.times(this.q.pow(y - 1)));
     }
 
     /**
@@ -61,7 +61,7 @@ var Geometric = function () {
   }, {
     key: "_variance",
     value: function _variance() {
-      return parseFloat(this.q.div(parseFloat(this.p.pow(2))));
+      return parseFloat(this.q.div(this.p.pow(2)));
     }
   }]);
 

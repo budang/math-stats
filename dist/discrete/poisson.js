@@ -34,7 +34,7 @@ var Poisson = function () {
     value: function probability(y) {
       if (y < 0) throw new Error("Invalid value for y");
 
-      return parseFloat(this.lambda.pow(y).times(parseFloat(new _bigJs2.default(Math.exp(-this.lambda)).div((0, _factorial3.default)(y)))));
+      return parseFloat(this.lambda.pow(y).times(new _bigJs2.default(Math.exp(-this.lambda)).div((0, _factorial3.default)(y))));
     }
   }, {
     key: '_mean',

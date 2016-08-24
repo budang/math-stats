@@ -32,7 +32,7 @@ var Hypergeometric = function () {
     this.variance = this._variance();
   }
 
-  /**
+  /** 
    * @param {Number} y - The Number of successes.
    * @returns {Number} The probability distribution.
    */
@@ -43,7 +43,7 @@ var Hypergeometric = function () {
     value: function probability(y) {
       if (this.n.lte(this.r) && (y < 0 || y > parseFloat(this.n)) || this.n.gt(this.r) && (y < 0 || y > parseFloat(this.r))) throw new Error("Invalid value for y");
 
-      return parseFloat(new _bigJs2.default((0, _choose3.default)(this.r, y)).times(parseFloat(new _bigJs2.default((0, _choose3.default)(this.N.minus(this.r), this.n.minus(y))).div((0, _choose3.default)(this.N, this.n)))));
+      return parseFloat(new _bigJs2.default((0, _choose3.default)(this.r, y)).times(new _bigJs2.default((0, _choose3.default)(this.N.minus(this.r), this.n.minus(y))).div((0, _choose3.default)(this.N, this.n))));
     }
 
     /**
@@ -63,8 +63,7 @@ var Hypergeometric = function () {
   }, {
     key: '_variance',
     value: function _variance() {
-      return parseFloat(this.n.times(parseFloat(this.r.div(this.N))).times(parseFloat(this.N.minus(this.r).div(this.N))).times(parseFloat(this.N.minus(this.r).div(parseFloat(this.N.minus(1))))));
-      _multiply(this.n, this.r / this.N, (this.N - this.r) / this.N, (this.N - this.n) / (this.N - 1));
+      return parseFloat(this.n.times(this.r.div(this.N)).times(this.N.minus(this.r).div(this.N)).times(this.N.minus(this.n).div(this.N.minus(1))));
     }
   }]);
 
