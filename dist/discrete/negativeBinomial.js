@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -7,7 +7,11 @@ exports.NegativeBinomial = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _choose2 = require("../internal/_choose");
+var _bigJs = require('big-js');
+
+var _bigJs2 = _interopRequireDefault(_bigJs);
+
+var _choose2 = require('../internal/_choose');
 
 var _choose3 = _interopRequireDefault(_choose2);
 
@@ -24,9 +28,9 @@ var NegativeBinomial = function () {
   function NegativeBinomial(p, r) {
     _classCallCheck(this, NegativeBinomial);
 
-    this.p = new Big(p);
-    this.q = new Big(1 - p);
-    this.r = new Big(r);
+    this.p = new _bigJs2.default(p);
+    this.q = new _bigJs2.default(1 - p);
+    this.r = new _bigJs2.default(r);
 
     this.mean = this._mean();
     this.variance = this._variance();
@@ -39,11 +43,11 @@ var NegativeBinomial = function () {
 
 
   _createClass(NegativeBinomial, [{
-    key: "probability",
+    key: 'probability',
     value: function probability(y) {
       if (y < parseFloat(this.r)) throw new Error("Invalid value for y");
 
-      return parseFloat(new Big((0, _choose3.default)(y - 1, this.r - 1)).times(parseFloat(this.p.pow(this.r))).times(parseFloat(this.q.pow(y - this.r))));
+      return parseFloat(new _bigJs2.default((0, _choose3.default)(y - 1, this.r - 1)).times(parseFloat(this.p.pow(this.r))).times(parseFloat(this.q.pow(y - this.r))));
     }
 
     /**
@@ -51,7 +55,7 @@ var NegativeBinomial = function () {
      */
 
   }, {
-    key: "_mean",
+    key: '_mean',
     value: function _mean() {
       return parseFloat(this.r.div(this.p));
     }
@@ -61,7 +65,7 @@ var NegativeBinomial = function () {
      */
 
   }, {
-    key: "_variance",
+    key: '_variance',
     value: function _variance() {
       return parseFloat(this.r.times(this.q).div(parseFloat(this.p.pow(2))));
     }
