@@ -4,8 +4,6 @@ const should = require('chai').should(),
   _choose = require('../dist/internal/_choose').default,
   _factorial = require('../dist/internal/_factorial').default,
   _gamma = require('../dist/internal/_gamma').default,
-  _multiply = require('../dist/internal/_multiply').default,
-  _pow = require('../dist/internal/_pow').default,
   stats = require('../dist/math-stats');
 
 /**
@@ -42,33 +40,6 @@ describe('_gamma()', () => {
   it(`calculates gamma of n = ${n}`, () => {
     const result = _gamma(n);
     result.should.equal(24);
-  });
-});
-
-/**
- * _multiply function
- */
-describe('_multiply()', () => {
-  const a = 0.1,
-    b = 0.2,
-    c = 0.3;
-
-  it(`calculates FP-safe product of a = ${a}, b = ${b}, c = ${c}`, () => {
-    const result = _multiply(a, b, c);
-    result.should.equal(0.006);
-  });
-});
-
-/**
- * _pow function
- */
-describe('_pow()', () => {
-  const base = 0.1,
-    exponent = 2;
-
-  it(`calculates FP-safe exponention of base = ${base}, exponent = ${exponent}`, () => {
-    const result = _pow(base, exponent);
-    result.should.equal(0.01);
   });
 });
 
