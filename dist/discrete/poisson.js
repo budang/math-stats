@@ -39,12 +39,12 @@ var Poisson = function () {
   }, {
     key: '_mean',
     value: function _mean() {
-      return this.lambda;
+      return parseFloat(this.lambda);
     }
   }, {
     key: '_variance',
     value: function _variance() {
-      return this.lambda;
+      return parseFloat(this.lambda);
     }
   }]);
 
