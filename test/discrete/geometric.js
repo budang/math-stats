@@ -1,7 +1,7 @@
 'use strict';
 
 const should = require('chai').should(),
-  stats = require('../dist/math-stats');
+  stats = require('../../dist/math-stats');
 
 /**
  * Geometric random variable

@@ -1,7 +1,7 @@
 'use strict';
 
 const should = require('chai').should(),
-  _gamma = require('../dist/internal/_gamma').default;
+  _gamma = require('../../dist/internal/_gamma').default;
 
 /**
  * _gamma function

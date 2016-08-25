@@ -1,7 +1,7 @@
 'use strict';
 
 const should = require('chai').should(),
-  _choose = require('../dist/internal/_choose').default;
+  _choose = require('../../dist/internal/_choose').default;
 
 /**
  * _choose function

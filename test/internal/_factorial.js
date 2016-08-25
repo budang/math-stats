@@ -1,7 +1,7 @@
 'use strict';
 
 const should = require('chai').should(),
-  _factorial = require('../dist/internal/_factorial').default;
+  _factorial = require('../../dist/internal/_factorial').default;
 
 /**
  * _factorial function
