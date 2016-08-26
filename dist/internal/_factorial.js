@@ -10,13 +10,13 @@ var _factorial = function _factorial(x) {
     return 1;
   }
 
-  var f = x;
+  var factorial = x;
 
   for (var i = x - 1; i > 1; i--) {
-    f *= i;
+    factorial *= i;
   }
 
-  return f;
+  return factorial;
 };
 
 exports.default = _factorial;

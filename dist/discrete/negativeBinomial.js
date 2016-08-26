@@ -7,9 +7,9 @@ exports.NegativeBinomial = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _bigJs = require('big-js');
+var _big = require('big.js');
 
-var _bigJs2 = _interopRequireDefault(_bigJs);
+var _big2 = _interopRequireDefault(_big);
 
 var _choose2 = require('../internal/_choose');
 
@@ -20,17 +20,19 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /** Class representing a Negative Binomial distribution. **/
+
 var NegativeBinomial = function () {
   /**
    * @param {Number} p - The probability of success.
    * @param {Number} r - The rth trial resulting in success.
    */
+
   function NegativeBinomial(p, r) {
     _classCallCheck(this, NegativeBinomial);
 
-    this.p = new _bigJs2.default(p);
-    this.q = new _bigJs2.default(1 - p);
-    this.r = new _bigJs2.default(r);
+    this.p = new _big2.default(p);
+    this.q = new _big2.default(1 - p);
+    this.r = new _big2.default(r);
 
     this.mean = this._mean();
     this.variance = this._variance();
@@ -47,7 +49,7 @@ var NegativeBinomial = function () {
     value: function probability(y) {
       if (y < parseFloat(this.r)) throw new Error("Invalid value for y");
 
-      return parseFloat(new _bigJs2.default((0, _choose3.default)(y - 1, this.r - 1)).times(this.p.pow(parseFloat(this.r))).times(this.q.pow(parseFloat(new _bigJs2.default(y).minus(this.r)))));
+      return parseFloat(new _big2.default((0, _choose3.default)(y - 1, this.r - 1)).times(this.p.pow(parseFloat(this.r))).times(this.q.pow(parseFloat(new _big2.default(y).minus(this.r)))));
     }
 
     /**

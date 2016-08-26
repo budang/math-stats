@@ -7,9 +7,9 @@ exports.Poisson = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _bigJs = require('big-js');
+var _big = require('big.js');
 
-var _bigJs2 = _interopRequireDefault(_bigJs);
+var _big2 = _interopRequireDefault(_big);
 
 var _factorial2 = require('../internal/_factorial');
 
@@ -23,7 +23,7 @@ var Poisson = function () {
   function Poisson(lambda) {
     _classCallCheck(this, Poisson);
 
-    this.lambda = new _bigJs2.default(lambda);
+    this.lambda = new _big2.default(lambda);
 
     this.mean = this._mean();
     this.variance = this._variance();
@@ -34,7 +34,7 @@ var Poisson = function () {
     value: function probability(y) {
       if (y < 0) throw new Error("Invalid value for y");
 
-      return parseFloat(this.lambda.pow(y).times(new _bigJs2.default(Math.exp(-this.lambda)).div((0, _factorial3.default)(y))));
+      return parseFloat(this.lambda.pow(y).times(new _big2.default(Math.exp(-this.lambda)).div((0, _factorial3.default)(y))));
     }
   }, {
     key: '_mean',

@@ -7,24 +7,26 @@ exports.Geometric = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _bigJs = require("big-js");
+var _big = require("big.js");
 
-var _bigJs2 = _interopRequireDefault(_bigJs);
+var _big2 = _interopRequireDefault(_big);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /** Class representing a Geometric distribution. **/
+
 var Geometric = function () {
   /**
    * @param {Number} p - The probability of success.
    */
+
   function Geometric(p) {
     _classCallCheck(this, Geometric);
 
-    this.p = new _bigJs2.default(p);
-    this.q = new _bigJs2.default(1 - p);
+    this.p = new _big2.default(p);
+    this.q = new _big2.default(1 - p);
 
     this.mean = this._mean();
     this.variance = this._variance();
@@ -51,7 +53,7 @@ var Geometric = function () {
   }, {
     key: "_mean",
     value: function _mean() {
-      return parseFloat(new _bigJs2.default(1).div(this.p));
+      return parseFloat(new _big2.default(1).div(this.p));
     }
 
     /**
