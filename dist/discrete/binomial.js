@@ -39,7 +39,7 @@ var Binomial = function () {
   }
 
   /**
-   * @param {Number} y - The Number of successes.
+   * @param {Number} y - The number of successes.
    * @returns {Number} The probability distribution.
    */
 

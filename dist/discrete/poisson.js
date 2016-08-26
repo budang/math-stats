@@ -19,7 +19,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+/** Class representing a Poisson distribution. **/
+
 var Poisson = function () {
+  /**
+   * @param {Number} lambda - The average number of events over some time.
+   */
+
   function Poisson(lambda) {
     _classCallCheck(this, Poisson);
 
@@ -29,6 +35,12 @@ var Poisson = function () {
     this.variance = this._variance();
   }
 
+  /**
+   * @param {Number} y - The number of successes.
+   * @returns {Number} The probability distribution.
+   */
+
+
   _createClass(Poisson, [{
     key: 'probability',
     value: function probability(y) {
@@ -36,11 +48,21 @@ var Poisson = function () {
 
       return parseFloat(this.lambda.pow(y).times(new _big2.default(Math.exp(-this.lambda)).div((0, _factorial3.default)(y))));
     }
+
+    /**
+     * @returns {Number} The mean.
+     */
+
   }, {
     key: '_mean',
     value: function _mean() {
       return parseFloat(this.lambda);
     }
+
+    /**
+     * @returns {Number} The variance.
+     */
+
   }, {
     key: '_variance',
     value: function _variance() {
