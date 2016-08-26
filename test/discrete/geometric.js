@@ -1,6 +1,7 @@
+/* global describe, it */
 'use strict';
 
-const should = require('chai').should(),
+const assert = require('assert'),
   stats = require('../../dist/math-stats');
 
 /**
@@ -15,21 +16,21 @@ describe('Geometric', () => {
   describe('#_mean()', () => {
     it(`calculates the mean for p = ${p}`, () => {
       const mean = geometric._mean();
-      mean.should.equal(50);
+      assert.equal(mean, 50);
     });
   });
 
   describe('#_variance()', () => {
     it(`calculates the variance for p = ${p}`, () => {
       const variance = geometric._variance();
-      variance.should.equal(2450);
+      assert.equal(variance, 2450);
     });
   });
 
   describe('#probability(y)', () => {
     it(`calculates the probability distribution for y = ${y}`, () => {
       const probability = geometric.probability(y);
-      probability.should.equal(0.0196);
+      assert.equal(probability, 0.0196);
     });
   });
 });

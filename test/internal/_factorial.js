@@ -1,6 +1,7 @@
+/* global describe, it */
 'use strict';
 
-const should = require('chai').should(),
+const assert = require('assert'),
   _factorial = require('../../dist/internal/_factorial').default;
 
 /**
@@ -10,7 +11,7 @@ describe('_factorial()', () => {
   const n = 10;
 
   it(`calculates factorial of n = ${n}`, () => {
-    const result = _factorial(n);
-    result.should.equal(3628800);
+    const factorial = _factorial(n);
+    assert.equal(factorial, 3628800);
   });
 });

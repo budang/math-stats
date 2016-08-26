@@ -1,6 +1,7 @@
+/* global describe, it */
 'use strict';
 
-const should = require('chai').should(),
+const assert = require('assert'),
   stats = require('../../dist/math-stats');
 
 /**
@@ -16,21 +17,21 @@ describe('NegativeBinomial', () => {
   describe('#_mean()', () => {
     it(`calculates the mean for p = ${p}, r = ${r}`, () => {
       const mean = negativeBinomial._mean();
-      mean.should.equal(15);
+      assert.equal(mean, 15);
     });
   });
 
   describe('#_variance()', () => {
     it(`calculates the variance for p = ${p}, r = ${r}`, () => {
       const variance = negativeBinomial._variance();
-      variance.should.equal(60);
+      assert.equal(variance, 60);
     });
   });
 
   describe('#probability(y)', () => {
     it(`calculates the probability distribution for y = ${y}`, () => {
       const probability = negativeBinomial.probability(y);
-      (probability.toFixed((4))).should.equal('0.0307');
+      assert.equal(probability.toFixed((4)), '0.0307');
     });
   });
 });

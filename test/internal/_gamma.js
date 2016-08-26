@@ -1,6 +1,7 @@
+/* global describe, it */
 'use strict';
 
-const should = require('chai').should(),
+const assert = require('assert'),
   _gamma = require('../../dist/internal/_gamma').default;
 
 /**
@@ -10,7 +11,7 @@ describe('_gamma()', () => {
   const n = 5;
 
   it(`calculates gamma of n = ${n}`, () => {
-    const result = _gamma(n);
-    result.should.equal(24);
+    const gamma = _gamma(n);
+    assert.equal(gamma, 24);
   });
 });

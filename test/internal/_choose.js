@@ -1,6 +1,7 @@
+/* global describe, it */
 'use strict';
 
-const should = require('chai').should(),
+const assert = require('assert'),
   _choose = require('../../dist/internal/_choose').default;
 
 /**
@@ -11,7 +12,7 @@ describe('_choose()', () => {
     k = 5;
 
   it(`calculates nCk for n = ${n}, k = ${k}`, () => {
-    const result = _choose(n, k);
-    result.should.equal(2598960);
+    const choose = _choose(n, k);
+    assert.equal(choose, 2598960);
   });
 });

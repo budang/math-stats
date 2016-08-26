@@ -1,6 +1,7 @@
+/* global describe, it */
 'use strict';
 
-const should = require('chai').should(),
+const assert = require('assert'),
   stats = require('../../dist/math-stats');
 
 /**
@@ -17,21 +18,21 @@ describe('Hypergeometric', () => {
   describe('#_mean()', () => {
     it(`calculates the mean for n = ${n}, N = ${N}, r = ${r}`, () => {
       const mean = hypergeomtric._mean();
-      mean.should.equal(1);
+      assert.equal(mean, 1);
     });
   });
 
   describe('#_variance()', () => {
     it(`calculates the variance for n = ${n}, N = ${N}, r = ${r}`, () => {
       const variance = hypergeomtric._variance();
-      (variance.toFixed(3)).should.equal('0.632');
+      assert.equal(variance.toFixed(3), '0.632');
     });
   });
 
   describe('#probability(y)', () => {
     it(`calculates the probability distribution for y = ${y}`, () => {
       const probability = hypergeomtric.probability(y);
-      (probability.toFixed((4))).should.equal('0.4696');
+      assert.equal(probability.toFixed((4)), '0.4696');
     });
   });
 });
