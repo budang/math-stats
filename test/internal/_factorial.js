@@ -1,6 +1,7 @@
 'use strict';
 
-const assert = require('assert'),
+const
+  assert = require('assert'),
   _factorial = require('../../dist/internal/_factorial').default;
 
 /**

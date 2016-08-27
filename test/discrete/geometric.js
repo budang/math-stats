@@ -1,13 +1,15 @@
 'use strict';
 
-const assert = require('assert'),
+const
+  assert = require('assert'),
   stats = require('../../dist/math-stats');
 
 /**
  * Geometric random variable
  */
 describe('Geometric', () => {
-  const p = 0.02,
+  const
+    p = 0.02,
     y = 2;
 
   const geometric = stats.geometric(p);

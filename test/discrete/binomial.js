@@ -1,13 +1,15 @@
 'use strict';
 
-const assert = require('assert'),
+const
+  assert = require('assert'),
   stats = require('../../dist/math-stats');
 
 /**
  * Binomial random variable
  */
 describe('Binomial', () => {
-  const p = 0.3,
+  const
+    p = 0.3,
     n = 10,
     y = 9;
 

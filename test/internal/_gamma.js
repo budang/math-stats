@@ -1,6 +1,7 @@
 'use strict';
 
-const assert = require('assert'),
+const
+  assert = require('assert'),
   _gamma = require('../../dist/internal/_gamma').default;
 
 /**

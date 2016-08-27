@@ -1,13 +1,15 @@
 'use strict';
 
-const assert = require('assert'),
+const
+  assert = require('assert'),
   stats = require('../../dist/math-stats');
 
 /**
  * Hypergeometric random variable
  */
 describe('Hypergeometric', () => {
-  const n = 5,
+  const
+    n = 5,
     N = 20,
     r = 4,
     y = 1;
