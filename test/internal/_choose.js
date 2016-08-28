@@ -9,11 +9,21 @@ const
  */
 describe('_choose()', () => {
   const
-    n = 52,
+    n = [52, 5, 1],
     k = 5;
 
-  it(`calculates nCk for n = ${n}, k = ${k}`, () => {
-    const choose = _choose(n, k);
+  it(`calculates nCk for n = ${n[0]}, k = ${k}`, () => {
+    const choose = _choose(n[0], k);
     assert.equal(choose, 2598960);
+  });
+
+  it(`calculates nCk for n = ${n[1]}, k = ${k}`, () => {
+    const choose = _choose(n[1], k);
+    assert.equal(choose, 1);
+  });
+
+  it(`calculates nCk for n = ${n[3]}, k = ${k}`, () => {
+    const choose = _choose(n[3], k);
+    assert.equal(choose, 0);
   });
 });
