@@ -8,7 +8,7 @@ const
  * _gamma function
  */
 describe('_gamma()', () => {
-  const n = [5, 1, -10];
+  const n = [5, 1, 0];
 
   it(`calculates gamma of n = ${n[0]}`, () => {
     const gamma = _gamma(n[0]);
