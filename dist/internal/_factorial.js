@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @description Computes the factorial of n.
+ * Computes the factorial of n.
  * @param {Number} n - The number to be evaluated.
  * @returns {Number} The factorial of n.
  */

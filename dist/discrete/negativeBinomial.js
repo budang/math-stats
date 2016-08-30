@@ -23,6 +23,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var NegativeBinomial = function () {
   /**
+   * Creates a Negative Binomial random variable.
    * @param {Number} p - The probability of success.
    * @param {Number} r - The rth trial resulting in success.
    */
@@ -39,6 +40,7 @@ var NegativeBinomial = function () {
   }
 
   /**
+   * Calculates some probability distribution.
    * @param {Number} y - The number of successes.
    * @returns {Number} The probability distribution.
    */
@@ -53,6 +55,7 @@ var NegativeBinomial = function () {
     }
 
     /**
+     * Computes the mean.
      * @returns {Number} The mean.
      */
 
@@ -63,6 +66,7 @@ var NegativeBinomial = function () {
     }
 
     /**
+     * Computes the variance.
      * @returns {Number} The variance.
      */
 

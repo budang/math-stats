@@ -15,7 +15,7 @@ var _factorial3 = _interopRequireDefault(_factorial2);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
- * @description Computes the binomial coefficient for n and k, e.g. n choose k.
+ * Computes the binomial coefficient for n and k, e.g. n choose k.
  * @param {Number} n - The number of elements in the set.
  * @param {Number} k - The number of elements in the combination.
  * @returns {Number} The number of ways to choose k elements from a set of n elements.

@@ -23,8 +23,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var Binomial = function () {
   /**
+   * Creates a Binomial random variable.
    * @param {Number} p - The probability of success.
-   * @param {Number} n - The Number of identical trials.
+   * @param {Number} n - The number of identical trials.
    */
 
   function Binomial(p, n) {
@@ -39,6 +40,7 @@ var Binomial = function () {
   }
 
   /**
+   * Calculates some probability distribution.
    * @param {Number} y - The number of successes.
    * @returns {Number} The probability distribution.
    */
@@ -53,6 +55,7 @@ var Binomial = function () {
     }
 
     /**
+     * Computes the mean.
      * @returns {Number} The mean.
      */
 
@@ -63,6 +66,7 @@ var Binomial = function () {
     }
 
     /**
+     * Computes the variance.
      * @returns {Number} The variance.
      */
 

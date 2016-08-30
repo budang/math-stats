@@ -23,6 +23,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var Poisson = function () {
   /**
+   * Creates a Poisson random variable.
    * @param {Number} lambda - The average number of events over some time.
    */
 
@@ -36,6 +37,7 @@ var Poisson = function () {
   }
 
   /**
+   * Calculates some probability distribution.
    * @param {Number} y - The number of successes.
    * @returns {Number} The probability distribution.
    */
@@ -50,6 +52,7 @@ var Poisson = function () {
     }
 
     /**
+     * Computes the mean.
      * @returns {Number} The mean.
      */
 
@@ -60,6 +63,7 @@ var Poisson = function () {
     }
 
     /**
+     * Computes the variance.
      * @returns {Number} The variance.
      */
 

@@ -22,6 +22,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 /** Class representing a Hypergeometric distribution. **/
 
 var Hypergeometric = function () {
+  /**
+   * Creates a Hypergeometric random variable.
+   * @param {Number} n - The number of draws.
+   * @param {Number} N - The population size.
+   * @param {Number} r - The number of classified successes.
+   */
+
   function Hypergeometric(n, N, r) {
     _classCallCheck(this, Hypergeometric);
 
@@ -33,7 +40,8 @@ var Hypergeometric = function () {
     this.variance = this._variance();
   }
 
-  /** 
+  /**
+   * Calculates some probability distribution.
    * @param {Number} y - The number of successes.
    * @returns {Number} The probability distribution.
    */
@@ -48,6 +56,7 @@ var Hypergeometric = function () {
     }
 
     /**
+     * Computes the mean.
      * @returns {Number} The mean.
      */
 
@@ -58,6 +67,7 @@ var Hypergeometric = function () {
     }
 
     /**
+     * Computes the variance.
      * @returns {Number} The variance.
      */
 

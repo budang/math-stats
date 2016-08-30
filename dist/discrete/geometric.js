@@ -19,6 +19,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var Geometric = function () {
   /**
+   * Creates a Geometric random variable.
    * @param {Number} p - The probability of success.
    */
 
@@ -33,6 +34,7 @@ var Geometric = function () {
   }
 
   /**
+   * Calculates some probability distribution.
    * @param {Number} y - The number of successes.
    * @returns {Number} The probability distribution.
    */
@@ -47,6 +49,7 @@ var Geometric = function () {
     }
 
     /**
+     * Computes the mean.
      * @returns {Number} The mean.
      */
 
@@ -57,6 +60,7 @@ var Geometric = function () {
     }
 
     /**
+     * Computes the variance.
      * @returns {Number} The variance.
      */
 
