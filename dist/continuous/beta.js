@@ -7,13 +7,13 @@ exports.Beta = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _big = require('big.js');
+
+var _big2 = _interopRequireDefault(_big);
+
 var _gamma2 = require('../internal/_gamma');
 
 var _gamma3 = _interopRequireDefault(_gamma2);
-
-var _multiply2 = require('../internal/_multiply');
-
-var _multiply3 = _interopRequireDefault(_multiply2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23,8 +23,8 @@ var Beta = function () {
   function Beta(alpha, beta) {
     _classCallCheck(this, Beta);
 
-    this.alpha = alpha;
-    this.beta = beta;
+    this.alpha = new _big2.default(alpha);
+    this.beta = new _big2.default(beta);
 
     this.mean = this._mean();
     this.variance = this._variance();
@@ -35,17 +35,17 @@ var Beta = function () {
     value: function probability(y) {
       if (y <= 0 || y >= 1) throw new Error("Invalid value for y");
 
-      return (0, _multiply3.default)((0, _gamma3.default)(this.alpha + this.beta) / ((0, _gamma3.default)(this.alpha), (0, _gamma3.default)(this.beta)), Math.pow(y, this.alpha - 1), Math.pow(1 - y, this.beta - 1));
+      return parseFloat(new _big2.default((0, _gamma3.default)(this.alpha.plus(this.beta))).div(new _big2.default((0, _gamma3.default)(this.alpha))).times(new _big2.default((0, _gamma3.default)(this.beta))).times(new _big2.default(y).pow(this.alpha.minus(1))).times(new _big2.default(1 - y).pow(this.beta.minus(1))));
     }
   }, {
     key: '_mean',
     value: function _mean() {
-      return this.alpha / (this.alpha + this.beta);
+      return parseFloat(this.alpha.div(this.alpha.plus(this.beta)));
     }
   }, {
     key: '_variance',
     value: function _variance() {
-      return (0, _multiply3.default)(this.alpha, this.beta) / (0, _multiply3.default)((Math.pow(this.alpha + this.beta, 2), this.alpha + this.beta + 1));
+      return parseFloat(this.alpha.times(this.beta).div(this.alpha.plus(this.beta).pow(2).times(this.alpha.plus(this.beta).plus(1))));
     }
   }]);
 

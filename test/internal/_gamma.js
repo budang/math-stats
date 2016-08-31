@@ -14,7 +14,7 @@ describe('_gamma()', () => {
     const gamma = _gamma(n[0]);
     assert.equal(gamma, 24);
   });
-  
+
   it(`calculates gamma of n = ${n[1]}`, () => {
     const gamma = _gamma(n[1]);
     assert.equal(gamma, 1);

@@ -21,11 +21,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @returns {Number} The number of ways to choose k elements from a set of n elements.
  */
 var _choose = function _choose(n, k) {
-  if ((0, _factorial3.default)(n) === Infinity) {
-    return Infinity;
-  } else if ((0, _factorial3.default)(k) === Infinity || n < k) {
-    return 0;
-  }
+  if ((0, _factorial3.default)(n) === Infinity) return Infinity;else if ((0, _factorial3.default)(k) === Infinity || n < k) return 0;
 
   return parseFloat(new _big2.default((0, _factorial3.default)(n)).div(new _big2.default((0, _factorial3.default)(k)).times(new _big2.default((0, _factorial3.default)(n - k)))));
 };
