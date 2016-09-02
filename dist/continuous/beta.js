@@ -35,7 +35,7 @@ var Beta = function () {
     value: function probability(y) {
       if (y <= 0 || y >= 1) throw new Error("Invalid value for y");
 
-      return parseFloat(new _big2.default((0, _gamma3.default)(this.alpha.plus(this.beta))).div(new _big2.default((0, _gamma3.default)(this.alpha))).times(new _big2.default((0, _gamma3.default)(this.beta))).times(new _big2.default(y).pow(this.alpha.minus(1))).times(new _big2.default(1 - y).pow(this.beta.minus(1))));
+      return parseFloat(new _big2.default((0, _gamma3.default)(this.alpha.plus(this.beta))).div((0, _gamma3.default)(this.alpha)).times((0, _gamma3.default)(this.beta)).times(new _big2.default(y).pow(this.alpha.minus(1))).times(new _big2.default(1 - y).pow(this.beta.minus(1))));
     }
   }, {
     key: '_mean',

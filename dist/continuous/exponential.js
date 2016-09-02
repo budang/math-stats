@@ -32,7 +32,7 @@ var Exponential = function () {
     value: function probability(y) {
       if (y <= 0 || y >= Infinity) throw new Error("Invalid value for y");
 
-      return parseFloat(new _big2.default(1).div(this.beta).times(new _big2.default(Math.E(new _big2.default(-y).div(this.beta)))));
+      return parseFloat(new _big2.default(1).div(this.beta).times(Math.E(parseFloat(new _big2.default(-y).div(this.beta)))));
     }
   }, {
     key: "_mean",
