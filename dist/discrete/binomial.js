@@ -20,14 +20,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /** Class representing a Binomial distribution. **/
-
 var Binomial = function () {
   /**
    * Creates a Binomial random variable.
    * @param {Number} p - The probability of success.
    * @param {Number} n - The number of identical trials.
    */
-
   function Binomial(p, n) {
     _classCallCheck(this, Binomial);
 
