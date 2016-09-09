@@ -16,11 +16,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /** Class representing a Geometric distribution. **/
+
 var Geometric = function () {
   /**
    * Creates a Geometric random variable.
    * @param {Number} p - The probability of success.
    */
+
   function Geometric(p) {
     _classCallCheck(this, Geometric);
 

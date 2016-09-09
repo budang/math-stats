@@ -20,6 +20,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /** Class representing a Hypergeometric distribution. **/
+
 var Hypergeometric = function () {
   /**
    * Creates a Hypergeometric random variable.
@@ -27,6 +28,7 @@ var Hypergeometric = function () {
    * @param {Number} N - The population size.
    * @param {Number} r - The number of classified successes.
    */
+
   function Hypergeometric(n, N, r) {
     _classCallCheck(this, Hypergeometric);
 

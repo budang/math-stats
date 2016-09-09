@@ -20,11 +20,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /** Class representing a Poisson distribution. **/
+
 var Poisson = function () {
   /**
    * Creates a Poisson random variable.
    * @param {Number} lambda - The average number of events over some time.
    */
+
   function Poisson(lambda) {
     _classCallCheck(this, Poisson);
 
