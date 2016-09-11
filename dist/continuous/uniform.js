@@ -15,7 +15,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+/** Class representing a Uniform distribution. **/
+
 var Uniform = function () {
+  /**
+   * Creates a Binomial random variable.
+   * @param {Number} theta1 - The start of the interval.
+   * @param {Number} theta2 - The end of the interval.
+   */
+
   function Uniform(theta1, theta2) {
     _classCallCheck(this, Uniform);
 
@@ -26,18 +34,37 @@ var Uniform = function () {
     this.variance = this._variance();
   }
 
+  /**
+   * Calculates some probability distribution.
+   * @param {Number} y - A number within the interval.
+   * @returns {Number} The probability distribution.
+   */
+
+
   _createClass(Uniform, [{
     key: "probability",
     value: function probability(y) {
       if (y < this.theta1 || y > this.theta2) throw new Error("Invalid value for y");
 
-      return parseFloat(new _big2.default(1).div(this.theta2.minus(theta1)));
+      return parseFloat(new _big2.default(1).div(this.theta2.minus(this.theta1)));
     }
+
+    /**
+     * Computes the mean.
+     * @returns {Number} The mean.
+     */
+
   }, {
     key: "_mean",
     value: function _mean() {
       return parseFloat(this.theta1.plus(this.theta2).div(2));
     }
+
+    /**
+     * Computes the variance.
+     * @returns {Number} The variance.
+     */
+
   }, {
     key: "_variance",
     value: function _variance() {

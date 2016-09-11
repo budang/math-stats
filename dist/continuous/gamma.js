@@ -35,8 +35,6 @@ var Gamma = function () {
     value: function probability(y) {
       if (y <= 0 || y >= Infinity) throw new Error("Invalid value for y");
 
-      return _multiply((1 / (0, _gamma3.default)(this.alpha), Math.pow(this.beta, this.alpha)), Math.pow(y, this.alpha - 1), Math.E(-y / this.beta));
-
       return parseFloat(new _big2.default(1).div((0, _gamma3.default)(this.alpha)).times(this.beta.pow(this.alpha)).times(new _big2.default(y).pow(this.alpha.minus(1))).times(Math.E(parseFloat(new _big2.default(-y).div(this.beta)))));
     }
   }, {
