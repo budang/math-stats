@@ -52,7 +52,12 @@ var Hypergeometric = function () {
     value: function probability(y) {
       if (this.n.lte(this.r) && (y < 0 || y > parseFloat(this.n)) || this.n.gt(this.r) && (y < 0 || y > parseFloat(this.r))) throw new Error("Invalid value for y");
 
-      return parseFloat(new _big2.default((0, _choose3.default)(this.r, y)).times(new _big2.default((0, _choose3.default)(this.N.minus(this.r), this.n.minus(y))).div((0, _choose3.default)(this.N, this.n))));
+      console.log('***************************');
+      console.log((0, _choose3.default)(20, 5));
+      console.log((0, _choose3.default)(this.N, this.n));
+      console.log('***************************');
+
+      return parseFloat(new _big2.default((0, _choose3.default)(this.r, y)).times(new _big2.default((0, _choose3.default)(this.N.minus(this.r), this.n.minus(y))).div(new _big2.default((0, _choose3.default)(this.N, this.n)))));
     }
 
     /**

@@ -10,8 +10,7 @@ const
 describe('Binomial', () => {
   const
     p = 0.3,
-    n = 10,
-    y = 9;
+    n = 10;
 
   const binomial = stats.binomial(p, n);
 
@@ -30,9 +29,19 @@ describe('Binomial', () => {
   });
 
   describe('#probability(y)', () => {
+    const y = 9;
     it(`calculates the probability distribution for y = ${y}`, () => {
       const probability = binomial.probability(y);
       assert.equal(probability.toFixed((6)), '0.000138');
+    });
+  });
+
+  describe('#probability(y)', () => {
+    const y = -1;
+    it(`calculates the probability distribution for y = ${y}`, () => {
+      assert.throws(() => {
+        binomial.probability(y);
+      }, Error, "Invalid value for y");
     });
   });
 });
