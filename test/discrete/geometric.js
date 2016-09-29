@@ -9,8 +9,7 @@ const
  */
 describe('Geometric', () => {
   const
-    p = 0.02,
-    y = 2;
+    p = 0.02;
 
   const geometric = stats.geometric(p);
 
@@ -29,9 +28,19 @@ describe('Geometric', () => {
   });
 
   describe('#probability(y)', () => {
+    const y = 2;
     it(`calculates the probability distribution for y = ${y}`, () => {
       const probability = geometric.probability(y);
       assert.equal(probability, 0.0196);
+    });
+  });
+
+  describe('#probability(y)', () => {
+    const y = 0;
+    it(`calculates the probability distribution for y = ${y}`, () => {
+      assert.throws(() => {
+        binomial.probability(y);
+      }, Error, "Invalid value for y");
     });
   });
 });
