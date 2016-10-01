@@ -10,8 +10,7 @@ const
 describe('NegativeBinomial', () => {
   const
     p = 0.2,
-    r = 3,
-    y = 5;
+    r = 3;
 
   const negativeBinomial = stats.negativeBinomial(p, r);
 
@@ -30,9 +29,19 @@ describe('NegativeBinomial', () => {
   });
 
   describe('#probability(y)', () => {
+    const y = 5;
     it(`calculates the probability distribution for y = ${y}`, () => {
       const probability = negativeBinomial.probability(y);
       assert.equal(probability.toFixed((4)), '0.0307');
+    });
+  });
+
+  describe('#probability(y)', () => {
+    const y = 2;
+    it(`calculates the probability distribution for r = ${r}, y = ${y}`, () => {
+      assert.throws(() => {
+        binomial.probability(y);
+      }, Error, "Invalid value for y");
     });
   });
 });
