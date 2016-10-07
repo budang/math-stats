@@ -9,8 +9,7 @@ const
  */
 describe('Poisson', () => {
   const
-    lambda = 5,
-    y = 0;
+    lambda = 5;
 
   const poisson = stats.poisson(lambda);
 
@@ -29,9 +28,19 @@ describe('Poisson', () => {
   });
 
   describe('#probability(y)', () => {
+    const y = 0;
     it(`calculates the probability distribution for y = ${y}`, () => {
       const probability = poisson.probability(y);
       assert.equal(probability.toFixed((6)), '0.006738');
+    });
+  });
+
+  describe('#probability(y)', () => {
+    const y = -1;
+    it(`calculates the probability distribution for y = ${y}`, () => {
+      assert.throws(() => {
+        poisson.probability(y);
+      }, Error, "Invalid value for y");
     });
   });
 });
